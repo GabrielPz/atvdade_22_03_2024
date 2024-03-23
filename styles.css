@@ -13,12 +13,12 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    gap: 1rem;
+    justify-content: space-between;
     margin: 1rem 0
 }
 
 .name{
-    width: 30%;
+    width: 38%;
 }
 
 .surname{
@@ -26,22 +26,22 @@
 }
 
 .date{
-    width: 29.5%
+    width: 32%
 }
 
 .profission{
-    width: 29.5%
+    width: 32%
 }
 
 .cpf{
-    width: 29.5%
+    width: 32%
 }
 
 .email{
     width: 60%;
 }
 .password{
-    width: 30%;
+    width: 38%;
 }
 
 body{
