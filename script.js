@@ -15,8 +15,9 @@ const validate = () => {
                     phone: form.querySelector('#telefone').value,
                     address: form.querySelector('#address').value,
                 };
-                alert(`Cadastro realizado com sucesso! \n ${JSON.stringify(payload)}`);
-                console.log(payload);
+                localStorage.setItem('userData', JSON.stringify(payload));
+                alert(`Cadastro realizado com sucesso!`);
+                form.reset();
             } else {
                 event.stopPropagation();
             }
@@ -25,4 +26,24 @@ const validate = () => {
     });
 };
 
+
+const showUser = () => {
+    const userFromStorage = JSON.parse(localStorage.getItem('userData'));
+    if(!userFromStorage) {
+        alert('Sem usuário cadastrado');
+        return;
+    }
+    const message = 
+    `
+     Nome do usuário: ${userFromStorage.name}
+     Sobrenome do usuário: ${userFromStorage.surname} 
+     Data de nascimento: ${userFromStorage.birthDate}
+    `
+    alert(message);
+}
+
+const removeUser = () => {
+    const response = confirm('Você realmente deseja remover o usuário do storager? ');
+    response ? localStorage.removeItem('userData') : '';
+}
 window.addEventListener('load', validate);
